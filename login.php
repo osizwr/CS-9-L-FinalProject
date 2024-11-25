@@ -1,10 +1,10 @@
 <?php
     include "localhost.php";
-    $email = $_POST['email'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
     
     
-    $usersql = "select email, password from users where email = '$email'";
+    $usersql = "select userLogin, userPass, userRole from users where userLogin = '$username'";
     
     $sql = mysqli_query($con, $usersql);
     if($sql){
@@ -14,11 +14,20 @@
         }
 
         else{
-            $uemail = $row['email'];
-            $upassword = $row['password'];
-            if($email == $uemail && $password == $upassword){
+            $ueusername = $row['userLogin'];
+            $upassword = $row['userPass'];
+            $urole = $row['userRole'];
+            if($username == $ueusername && $password == $upassword){
                 echo "<br>Successfully logged in.";
             }
+            
+                if($urole == 'Admin'){
+                    header('Location: admin_dashboard.html'); 
+                    exit();
+                }elseif($urole == 'Student'){
+                    header('Location: student_dashboard.html'); 
+                    exit();
+                }
 
             else{
                 echo "<br>Wrong Credentials";
