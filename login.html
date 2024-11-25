@@ -20,43 +20,36 @@
                 <form action="" class="login__form">
                     <div>
                         <h1 class="login__title">
-                            <span>Welcome</span> Back
+                            <span>Welcome!</span>
                         </h1>
                         <p class="login__description">
-                            Welcome! Please login to continue.
+                            Please login to continue.
                         </p>
                     </div>
                     
                     <div>
+                        <form action="login.php" method="POST">
                         <div class="login__inputs">
                             <div>
-                                <label for="input-email" class="login__label">Email</label>
-                                <input type="email" placeholder="Enter your email address" required class="login__input" id="input-email">
+                                <label for="username" class="login__label">Username</label>
+                                <input type="username" class="login__input" id="username" placeholder="Username" name="username" required>
                             </div>
     
                             <div>
-                                <label for="input-pass" class="login__label">Password</label>
+                                <label for="password" class="login__label">Password</label>
     
                                 <div class="login__box">
-                                    <input type="password" placeholder="Enter your password" required class="login__input" id="input-pass">
-                                    <i class="ri-eye-off-line login__eye" id="input-icon"></i>
+                                    <input type="password" class="login__input" id="password" placeholder="Password" name="password" required>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="login__check">
-                            <input type="checkbox" class="login__check-input" id="input-check">
-                            <label for="input-check" class="login__check-label">Remember me</label>
                         </div>
                     </div>
 
                     <div>
                         <div class="login__buttons">
                             <button class="login__button">Log In</button>
-                            <button class="login__button login__button-ghost">Sign Up</button>
                         </div>
-
-                        <a href="#" class="login__forgot">Forgot Password?</a>
+                        </form>
                     </div>
                 </form>
             </div>
