@@ -63,13 +63,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="myinfo.html">
+                <a href="myinfo.php">
                   <i class="fas fa-user"></i>
                   <p>My Personal Info</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="mygrade.html">
+                <a href="mygrade.php">
                   <i class="fas fa-book"></i>
                   <p>My Grades</p>
                 </a>
