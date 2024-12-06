@@ -257,6 +257,7 @@
                         <thead>
                           <tr>
                             <th>Subject ID</th>
+                            <th>Code</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Action</th>
@@ -264,16 +265,9 @@
                         </thead>
                         
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Elective</td>
-                                <td>hehe xD</td>
-                                <td>
-                                <a href="subject/edit-subject.php" class="btn btn-primary btn-rounded">Edit</a>
-                                &nbsp;&nbsp;&nbsp;
-                                <a href="subject/delete-subject.php" class="btn btn-danger btn-rounded">Delete</a>
-                                </td>
-                            </tr>
+                            <?php
+                            include 'subject/fetchsubject.php';
+                            ?>
                         </tbody>
                       </table>
                     </div>
