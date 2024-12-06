@@ -2,7 +2,7 @@
 include 'dbcon.php'; // Include your database connection file
 
 // Query to fetch student data
-$query = "SELECT subjectID, subjectCode, subjectName, subjectDescription FROM subjects";
+$query = "SELECT * FROM subjects";
 
 // Prepare and execute the query
 $stmt = $con->prepare($query);
