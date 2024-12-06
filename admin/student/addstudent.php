@@ -13,21 +13,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Hash the password
     $hashed_password = password_hash($final_password, PASSWORD_DEFAULT);
 
-    // SQL query
-    $sql = "
+    // Insert into students table
+    $sql1 = "
     INSERT INTO students (studentID, firstName, lastName, contactNo, email, yearLevel)
     VALUES ('$student_id', '$firstname', '$lastname', '$phone', '$student_email', '1st Year');
-    
-    INSERT INTO users (userLogin, userPass, userRole)
-    VALUES ('$student_id', '$hashed_password', 'Student');
     ";
 
-    // Execute query
-    if (mysqli_multi_query($con, $sql)) {
-        header("Location: ../manage-students.php");
-        exit();
+    // Execute first query
+    if (mysqli_query($con, $sql1)) {
+        // Insert into users table only after students table insert is successful
+        $sql2 = "
+        INSERT INTO users (userLogin, userPass, userRole)
+        VALUES ('$student_id', '$hashed_password', 'Student');
+        ";
+
+        // Execute second query
+        if (mysqli_query($con, $sql2)) {
+            header("Location: ../manage-students.php");
+            exit();
+        } else {
+            echo "Error in users table: " . mysqli_error($con);
+        }
     } else {
-        echo "Error: " . mysqli_error($con);
+        echo "Error in students table: " . mysqli_error($con);
     }
 
     // Close the connection

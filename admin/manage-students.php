@@ -217,7 +217,7 @@
           </nav>
           <!-- End Navbar -->
         </div>
-
+        <!-- Main -->
         <div class="container">
           <div class="page-inner">
             <div class="page-header">
@@ -247,6 +247,7 @@
                         <div class="col-md-6">
                             <div class="pull-right">
                             <a href="student/add-student.php" class="btn btn-success btn-rounded">Add Student</a>
+                            <a href="#" class="btn btn-primary btn-rounded">Add Subjects to Student</a>
                             </div>
                         </div>
                         </div>
@@ -307,7 +308,51 @@
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
 
-    
+    <script>
+    function deleteStudent(studentID) {
+      swal({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          buttons: {
+            cancel: {
+              visible: true,
+              text: 'No, cancel!',
+              className: 'btn btn-danger'
+            },
+            confirm: {
+              text: 'Yes, delete it!',
+              className: 'btn btn-success'
+            }
+          }
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            // Delay the redirection by 2 seconds (2000 ms)
+            setTimeout(function() {
+              window.location.href = `student/delete-student.php?studentID=${studentID}`;
+            }, 2000); // 2 seconds delay
+            
+            swal("Poof! The student has been deleted!", {
+              icon: "success",
+              buttons: {
+                confirm: {
+                  className: 'btn btn-success'
+                }
+              }
+            });
+          } else {
+            swal("The student is safe!", {
+              buttons: {
+                confirm: {
+                  className: 'btn btn-success'
+                }
+              }
+            });
+          }
+        });
+    }
+    </script>
 
     <!-- jQuery Scrollbar -->
     <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>

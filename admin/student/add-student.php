@@ -54,7 +54,7 @@
                 <h4 class="text-section">MAIN</h4>
               </li>
               <li class="nav-item">
-                <a href="dashboard.php">
+                <a href="../dashboard.php">
                   <i class="fas fa-home"></i>
                   <p>Dashboard</p>
                 </a>
@@ -271,7 +271,7 @@
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <input type="text" class="form-control form-control-user" id="contactNo" name="contactNo"
-                                            placeholder="Mobile Number" required>
+                                            placeholder="Contact Number" required>
                                     </div>
                                 </div>
                                 <div class="pull-left">
