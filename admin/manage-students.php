@@ -331,7 +331,7 @@
             // Delay the redirection by 2 seconds (2000 ms)
             setTimeout(function() {
               window.location.href = `student/delete-student.php?studentID=${studentID}`;
-            }, 2000); // 2 seconds delay
+            }, 1000); // 2 seconds delay
             
             swal("Poof! The student has been deleted!", {
               icon: "success",

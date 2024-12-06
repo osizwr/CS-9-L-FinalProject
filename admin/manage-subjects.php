@@ -306,6 +306,52 @@
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
 
+    <script>
+    function deleteSubject(subjectID) {
+      swal({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          buttons: {
+            cancel: {
+              visible: true,
+              text: 'No, cancel!',
+              className: 'btn btn-danger'
+            },
+            confirm: {
+              text: 'Yes, delete it!',
+              className: 'btn btn-success'
+            }
+          }
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            // Delay the redirection by 2 seconds (2000 ms)
+            setTimeout(function() {
+              window.location.href = `subject/delete-subject.php?subjectID=${subjectID}`;
+            }, 1000); // 2 seconds delay
+            
+            swal("Poof! The subject has been deleted!", {
+              icon: "success",
+              buttons: {
+                confirm: {
+                  className: 'btn btn-success'
+                }
+              }
+            });
+          } else {
+            swal("The subject is safe!", {
+              buttons: {
+                confirm: {
+                  className: 'btn btn-success'
+                }
+              }
+            });
+          }
+        });
+    }
+    </script>
+
     
 
     <!-- jQuery Scrollbar -->

@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
             echo "<td>";
             echo "<a href='subject/edit-subject.php?id_subject=" . $row['subjectID'] . "' class='btn btn-primary btn-rounded'>Edit</a>";
             echo "&nbsp;&nbsp;&nbsp;";
-            echo '<a onclick="deleteStudent(\'' . $row['subjectID'] . '\')" class="btn btn-danger btn-rounded">Delete</a>';
+            echo '<a onclick="deleteSubject(\'' . $row['subjectID'] . '\')" class="btn btn-danger btn-rounded">Delete</a>';
             echo "</td>";
         echo "</tr>";
     }
