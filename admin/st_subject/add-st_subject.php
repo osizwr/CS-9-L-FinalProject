@@ -2,16 +2,16 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>SMS - View Students</title>
+    <title>SMS - Add Subjects to Student</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
-    <link rel="icon" href="../assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../../assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
 
     <!-- Fonts and icons -->
-    <script src="../assets/js/plugin/webfont/webfont.min.js"></script>
+    <script src="../../assets/js/plugin/webfont/webfont.min.js"></script>
     <script>
 		WebFont.load({
 			google: {"families":["Public Sans:300,400,500,600,700"]},
-			custom: {"families":["Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['../assets/css/fonts.min.css']},
+			custom: {"families":["Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['../../assets/css/fonts.min.css']},
 			active: function() {
 				sessionStorage.fonts = true;
 			}
@@ -19,9 +19,9 @@
 	</script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="../assets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="../../assets/css/kaiadmin.min.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -31,7 +31,7 @@
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
             <a href="index.html" class="logo">
-              <img src="../assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
+              <img src="../../assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
             </a>
             <div class="nav-toggle">
 						<button class="btn btn-toggle toggle-sidebar">
@@ -54,7 +54,7 @@
                 <h4 class="text-section">MAIN</h4>
               </li>
               <li class="nav-item">
-                <a href="dashboard.php">
+                <a href="../dashboard.php">
                   <i class="fas fa-home"></i>
                   <p>Dashboard</p>
                 </a>
@@ -68,17 +68,17 @@
                 <div class="collapse" id="base">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="manage-students.php">
+                      <a href="../manage-students.php">
                         <span class="sub-item">View Students</span>
                       </a>
                     </li>
                     <li>
-                        <a href="manage-st_subjects.php">
+                        <a href="../manage-st_subjects.php">
                           <span class="sub-item">View Students Subjects</span>
                         </a>
                     </li>
                     <li>
-                        <a href="manage-grades.php">
+                        <a href="../manage-grades.php">
                           <span class="sub-item">View Students Grades</span>
                         </a>
                     </li>
@@ -86,7 +86,7 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a href="manage-subjects.php">
+                <a href="../manage-subjects.php">
                   <i class="fas fa-book"></i>
                   <p>Subjects</p>
                 </a>
@@ -118,7 +118,7 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark">
               <a href="index.html" class="logo">
-                <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
+                <img src="../../assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
               </a>
               <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -181,7 +181,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="../assets/img/profile.jpg"
+                        src="../../assets/img/profile.jpg"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
@@ -196,7 +196,7 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                              src="../assets/img/profile.jpg"
+                              src="../../assets/img/profile.jpg"
                               alt="image profile"
                               class="avatar-img rounded"
                             />
@@ -222,21 +222,27 @@
           </nav>
           <!-- End Navbar -->
         </div>
-        <!-- Main -->
+
         <div class="container">
           <div class="page-inner">
             <div class="page-header">
               <h4 class="page-title">Students</h4>
               <ul class="breadcrumbs">
                 <li class="nav-home">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-book"></i>
                   </a>
                 </li>
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="manage-students.php">View Students</a>
+                  <a href="../manage-st_subjects.php">View Students Subjects</a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="manage-subjects.php">Add Subjects to Student</a>
                 </li>
               </ul>
             </div>
@@ -247,36 +253,35 @@
                     <div class="card-header">
                         <div class="col-md-12 row">
                         <div class="col-md-6">
-                          <h1>List of Students</h1>
+                          <h1>Add Subjects to Student</h1>
                         </div>
                         <div class="col-md-6">
-                            <div class="pull-right">
-                            <a href="student/add-student.php" class="btn btn-success btn-rounded">Add Student</a>
-                            <a href="#" class="btn btn-primary btn-rounded">Add Subjects to Student</a>
-                            </div>
                         </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        
-                      <table class="table table-striped mt-3 table-responsive">
-                        <thead>
-                          <tr>
-                            <th>Student ID</th>
-                            <th>Name</th>
-                            <th>Contact No.</th>
-                            <th>Corporate Email</th>
-                            <th>Year Level</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        
-                        <tbody>
-                            <?php
-                            include 'student/fetchstudent.php';
-                            ?>
-                        </tbody>
-                      </table>
+                    <form action="addstsubject.php" method="POST" class="user">  
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3">
+                                        Student ID - Name: <select class="btn btn-primary btn-border" id="selectstudent" name="selectstudent">
+                                            <?php
+                                                include 'fetchstsubject.php'
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="form-label">Available Subjects: </label>
+                                    <div class="selectgroup selectgroup-pills">
+                                        <?php
+                                            include 'fetchavailablestsubject.php'
+                                        ?>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="pull-left">
+                                    <button type="submit" class="btn btn-success btn-rounded">Add Subjects to Student</button>
+                                </div>
+                            </form>
                     </div>
                   </div>
                 </div>
@@ -309,85 +314,41 @@
       </div>
     </div>
     <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="../../assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="../../assets/js/core/popper.min.js"></script>
+    <script src="../../assets/js/core/bootstrap.min.js"></script>
 
-    <script>
-    function deleteStudent(studentID) {
-      swal({
-          title: 'Are you sure?',
-          text: "You won't be able to revert this!",
-          icon: 'warning',
-          buttons: {
-            cancel: {
-              visible: true,
-              text: 'No, cancel!',
-              className: 'btn btn-danger'
-            },
-            confirm: {
-              text: 'Yes, delete it!',
-              className: 'btn btn-success'
-            }
-          }
-        })
-        .then((willDelete) => {
-          if (willDelete) {
-            // Delay the redirection by 2 seconds (2000 ms)
-            setTimeout(function() {
-              window.location.href = `student/delete-student.php?studentID=${studentID}`;
-            }, 1000); // 2 seconds delay
-            
-            swal("Poof! The student has been deleted!", {
-              icon: "success",
-              buttons: {
-                confirm: {
-                  className: 'btn btn-success'
-                }
-              }
-            });
-          } else {
-            swal("The student is safe!", {
-              buttons: {
-                confirm: {
-                  className: 'btn btn-success'
-                }
-              }
-            });
-          }
-        });
-    }
-    </script>
+    
 
     <!-- jQuery Scrollbar -->
-    <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="../../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
     <!-- Chart JS -->
-    <script src="../assets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="../../assets/js/plugin/chart.js/chart.min.js"></script>
 
     <!-- jQuery Sparkline -->
-    <script src="../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <script src="../../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
 
     <!-- Chart Circle -->
-    <script src="../assets/js/plugin/chart-circle/circles.min.js"></script>
+    <script src="../../assets/js/plugin/chart-circle/circles.min.js"></script>
 
     <!-- Datatables -->
-    <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+    <script src="../../assets/js/plugin/datatables/datatables.min.js"></script>
 
     <!-- Bootstrap Notify -->
-    <script src="../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="../../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
     <!-- jQuery Vector Maps -->
-    <script src="../assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
-    <script src="../assets/js/plugin/jsvectormap/world.js"></script>
+    <script src="../../assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="../../assets/js/plugin/jsvectormap/world.js"></script>
 
     <!-- Google Maps Plugin -->
-    <script src="../assets/js/plugin/gmaps/gmaps.js"></script>
+    <script src="../../assets/js/plugin/gmaps/gmaps.js"></script>
 
     <!-- Sweet Alert -->
-    <script src="../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="../../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 
     <!-- Kaiadmin JS -->
-    <script src="../assets/js/kaiadmin.min.js"></script>
+    <script src="../../assets/js/kaiadmin.min.js"></script>
   </body>
 </html>

@@ -73,10 +73,15 @@
                       </a>
                     </li>
                     <li>
+                        <a href="manage-st_subjects.php">
+                          <span class="sub-item">View Students Subjects</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="manage-grades.php">
                           <span class="sub-item">View Students Grades</span>
                         </a>
-                      </li>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -246,7 +251,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="pull-right">
-                            <a href="grade/add-grade.php" class="btn btn-success btn-rounded">Add Grade</a>
+                            <a href="grade/add-grade.php" class="btn btn-success btn-rounded">Add Grades to Student</a>
                             </div>
                         </div>
                         </div>
@@ -258,26 +263,17 @@
                           <tr>
                             <th>Student ID</th>
                             <th>Name</th>
-                            <th>Subject Name</th>
-                            <th>Grade</th>
+                            <th>Corporate Email</th>
+                            <th>Subject</th>
                             <th>Semester</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         
                         <tbody>
-                            <tr>
-                                <td>202040175</td>
-                                <td>Cajilo, Marvin Joseph</td>
-                                <td>CS Elective</td>
-                                <td>1.75</td>
-                                <td>1st Semester</td>
-                                <td>
-                                <a href="grade/edit-grade.php" class="btn btn-primary btn-rounded">Edit</a>
-                                &nbsp;&nbsp;&nbsp;
-                                <a href="grade/delete-grade.php" class="btn btn-danger btn-rounded">Delete</a>
-                                </td>
-                            </tr>
+                            <?php
+                            include 'grade/fetchgrade.php';
+                            ?>
                         </tbody>
                       </table>
                     </div>

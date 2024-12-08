@@ -97,10 +97,15 @@ if (isset($_GET['id_student'])) {
                       </a>
                     </li>
                     <li>
+                        <a href="../manage-st_subjects.php">
+                          <span class="sub-item">View Students Subjects</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="../manage-grades.php">
                           <span class="sub-item">View Students Grades</span>
                         </a>
-                      </li>
+                    </li>
                   </ul>
                 </div>
               </li>

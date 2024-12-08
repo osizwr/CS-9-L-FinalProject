@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>SMS - View Students</title>
+    <title>SMS - Student Subjects</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <link rel="icon" href="../assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
 
@@ -118,7 +118,7 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark">
               <a href="index.html" class="logo">
-                <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
+                <img src="../assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
               </a>
               <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -222,21 +222,21 @@
           </nav>
           <!-- End Navbar -->
         </div>
-        <!-- Main -->
+
         <div class="container">
           <div class="page-inner">
             <div class="page-header">
               <h4 class="page-title">Students</h4>
               <ul class="breadcrumbs">
                 <li class="nav-home">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-book"></i>
                   </a>
                 </li>
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="manage-students.php">View Students</a>
+                  <a href="manage-st_subjects.php">View Students Subjects</a>
                 </li>
               </ul>
             </div>
@@ -247,12 +247,11 @@
                     <div class="card-header">
                         <div class="col-md-12 row">
                         <div class="col-md-6">
-                          <h1>List of Students</h1>
+                          <h1>List of Student Subjects</h1>
                         </div>
                         <div class="col-md-6">
                             <div class="pull-right">
-                            <a href="student/add-student.php" class="btn btn-success btn-rounded">Add Student</a>
-                            <a href="#" class="btn btn-primary btn-rounded">Add Subjects to Student</a>
+                            <a href="st_subject/add-st_subject.php" class="btn btn-success btn-rounded">Add Subjects to Student</a>
                             </div>
                         </div>
                         </div>
@@ -264,16 +263,15 @@
                           <tr>
                             <th>Student ID</th>
                             <th>Name</th>
-                            <th>Contact No.</th>
                             <th>Corporate Email</th>
-                            <th>Year Level</th>
+                            <th>Subject Count</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         
                         <tbody>
                             <?php
-                            include 'student/fetchstudent.php';
+                            include 'st_subject/fetchstsubject.php';
                             ?>
                         </tbody>
                       </table>
@@ -314,7 +312,7 @@
     <script src="../assets/js/core/bootstrap.min.js"></script>
 
     <script>
-    function deleteStudent(studentID) {
+    function deleteSubject(subjectID) {
       swal({
           title: 'Are you sure?',
           text: "You won't be able to revert this!",
@@ -335,10 +333,10 @@
           if (willDelete) {
             // Delay the redirection by 2 seconds (2000 ms)
             setTimeout(function() {
-              window.location.href = `student/delete-student.php?studentID=${studentID}`;
+              window.location.href = `subject/delete-subject.php?subjectID=${subjectID}`;
             }, 1000); // 2 seconds delay
             
-            swal("Poof! The student has been deleted!", {
+            swal("Poof! The subject has been deleted!", {
               icon: "success",
               buttons: {
                 confirm: {
@@ -347,7 +345,7 @@
               }
             });
           } else {
-            swal("The student is safe!", {
+            swal("The subject is safe!", {
               buttons: {
                 confirm: {
                   className: 'btn btn-success'
@@ -358,6 +356,8 @@
         });
     }
     </script>
+
+    
 
     <!-- jQuery Scrollbar -->
     <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>

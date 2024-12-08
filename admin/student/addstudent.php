@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $final_password = $student_id;
     $student_email = $student_id . "@psu.palawan.edu.ph";
     // Hash the password
-    $hashed_password = password_hash($final_password, PASSWORD_DEFAULT);
 
     // Insert into students table
     $sql1 = "
@@ -24,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Insert into users table only after students table insert is successful
         $sql2 = "
         INSERT INTO users (userLogin, userPass, userRole)
-        VALUES ('$student_id', '$hashed_password', 'Student');
+        VALUES ('$student_id', '$final_password', 'Student');
         ";
 
         // Execute second query

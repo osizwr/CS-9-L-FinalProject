@@ -1,45 +1,41 @@
 <?php
-session_start();
-include 'dbcon.php'; // Include the database connection
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get form data
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+    include "dbcon.php";
+    $username = $_POST['username'];
+    $password = $_POST['password'];
     
-    // Prepare the SQL statement to fetch the user by username
-    $stmt = $con->prepare("SELECT * FROM users WHERE userLogin = ?");
-    if (!$stmt) {
-        die("Error preparing statement: " . $con->error);
-    }
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    
+    $usersql = "SELECT userLogin, userPass, userRole FROM users WHERE userLogin = '$username'";
+    
+    $sql = mysqli_query($con, $usersql);
+    if($sql){
+        $row = $sql->fetch_assoc();
+        if($row == NULL){
+            echo "<br>Wrong Credentials.";
+        }
 
-    // Check if the user exists
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
-        
-        // Verify the password
-        if (password_verify($password, $user['userPass'])) {
-            // Password is correct, store session variables
-            $_SESSION['userID'] = $user['userID'];
-            $_SESSION['userRole'] = $user['userRole'];
-
-            // Redirect based on the user role
-            if ($user['userRole'] === 'Admin') {
-                header("Location: admin/dashboard.php"); // Redirect to Admin dashboard
-                exit;
-            } else {
-                header("Location: student/dashboard.php"); // Redirect to Student dashboard
-                exit;
+        else{
+            $DBusername = $row['userLogin'];
+            $DBpassword = $row['userPass'];
+            $DBrole = $row['userRole'];
+            if($username == $DBusername && $password == $DBpassword){
+                if($DBrole == 'Student'){
+                    header("Location: student/dashboard.php?studentID=" . urlencode($DBusername));
+                    exit;
+                }else if($DBrole == 'Admin'){
+                    header("Location: admin/dashboard.php?studentID=" . urlencode($DBusername));
+                    exit;
+                }else{
+                    echo "Unknown Role";
+                }
+            }else{
+                echo "<br>Wrong Credentials";
             }
         }
+        
     }
-
-    // Invalid credentials
-    $_SESSION['error'] = "Invalid username or password.";
-    header("Location: login.html"); // Redirect to login page
-    exit;
-}
+    
+    else
+        echo "Error";
+    
+    
 ?>
