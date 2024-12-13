@@ -31,11 +31,11 @@
                     <div>
                         <div class="login__inputs">
                             <div>
-                                <label for="username" class="login__label">Username</label>
-                                <input type="username" class="login__input" id="username" placeholder="Username" name="username" required>
+                                <label for="username" class="login__label">Corporate Email:</label>
+                                <input type="username" class="login__input" id="username" placeholder="Corporate Email" name="username" required>
                             </div>
                             <div>
-                                <label for="password" class="login__label">Password</label>
+                                <label for="password" class="login__label">Password:</label>
                                 <div class="login__box">
                                     <input type="password" class="login__input" id="password" placeholder="Password" name="password" required>
                                 </div>

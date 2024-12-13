@@ -1,6 +1,7 @@
 <?php
 include 'header.php';
 ?>
+<head><title>SMS - My Personal Info</title></head>
         <div class="container">
           <div class="page-inner">
             <div class="page-header">

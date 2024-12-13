@@ -1,6 +1,7 @@
 <?php
 include 'header.php';
 ?>
+<head><title>SMS - Edit Profile Info</title></head>
         <div class="container">
           <div class="page-inner">
             <div class="page-header">

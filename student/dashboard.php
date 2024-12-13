@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 ?>
-
+<head><title>SMS - Student Dashboard</title></head>
         <div class="container">
           <div class="page-inner">
             <div class="page-header">

@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
             echo "&nbsp;&nbsp;&nbsp;";
             echo "<a href='student/edit-student.php?id_student=" . $row['studentID'] . "' class='btn btn-primary btn-rounded'>Edit</a>";
             echo "&nbsp;&nbsp;&nbsp;";
-            echo '<a onclick="deleteStudent(\'' . $row['studentID'] . '\')" class="btn btn-danger btn-rounded">Delete</a>';
+            echo '<a onclick="deleteStudent(\'' . $row['email'] . '\')" class="btn btn-danger btn-rounded">Delete</a>';
             echo "</td>";
         echo "</tr>";
     }

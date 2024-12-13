@@ -5,8 +5,8 @@ if (isset($_GET['subjectID'])) {
     $subjectID = $_GET['subjectID'];
 
     // Delete from grades table first to maintain referential integrity
-    $deleteGrades = "DELETE FROM grades WHERE subjectID = '$subjectID'";
-    mysqli_query($con, $deleteGrades);
+    //$deleteGrades = "DELETE FROM grades WHERE subjectID = '$subjectID'";
+    //mysqli_query($con, $deleteGrades);
 
     // Delete from students table
     $deleteSubject = "DELETE FROM subjects WHERE subjectID = '$subjectID'";

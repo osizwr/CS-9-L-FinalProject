@@ -1,31 +1,5 @@
 <?php
-include "../dbcon.php";
-
-// Get the userLogin from the URL
-if (isset($_GET['studentID'])) {
-    $userLogin = $_GET['studentID'];
-
-    // Fetch user details
-    $sql = "SELECT *, CONCAT(lastName, ', ', firstName) AS fullName FROM students WHERE studentID = ?";
-    $stmt = $con->prepare($sql);
-    $stmt->bind_param("s", $userLogin);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-    } else {
-        echo "User details not found.";
-        exit;
-    }
-
-    $stmt->close();
-} else {
-    echo "Invalid Access. No User Specified.";
-    exit;
-}
-
-$con->close();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,36 +93,50 @@ $con->close();
                 <h4 class="text-section">MAIN</h4>
               </li>
               <li class="nav-item">
-                <a href="dashboard.php?studentID=<?php echo $user['studentID']; ?>">
+                <a href="dashboard.php?adminID=<?php echo $_SESSION['user']['userLogin']; ?>">
                   <i class="fas fa-home"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="myinfo.php?studentID=<?php echo $user['studentID']; ?>">
-                  <i class="fas fa-user"></i>
-                  <p>My Personal Info</p>
+                <a data-bs-toggle="collapse" href="#base">
+                  <i class="fas fa-users"></i>
+                  <p>Students</p>
+                  <span class="caret"></span>
                 </a>
+                <div class="collapse" id="base">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="manage-students.php?adminID=<?php echo $_SESSION['user']['userLogin']; ?>">
+                        <span class="sub-item">View Students</span>
+                      </a>
+                    </li>
+                    <li>
+                        <a href="manage-st_subjects.php?adminID=<?php echo $_SESSION['user']['userLogin']; ?>">
+                          <span class="sub-item">View Students Subjects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="manage-grades.php?adminID=<?php echo $_SESSION['user']['userLogin']; ?>">
+                          <span class="sub-item">View Students Grades</span>
+                        </a>
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li class="nav-item">
-                <a href="mysubjects.php?studentID=<?php echo $user['studentID']; ?>">
-                  <i class="fas fa-graduation-cap"></i>
-                  <p>My Subjects</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="mygrades.php?studentID=<?php echo $user['studentID']; ?>">
+                <a href="manage-subjects.php?adminID=<?php echo $_SESSION['user']['userLogin']; ?>">
                   <i class="fas fa-book"></i>
-                  <p>My Grades</p>
+                  <p>Subjects</p>
                 </a>
               </li>
               <li class="nav-section">
                 <h4 class="text-section">Settings</h4>
               </li>
               <li class="nav-item">
-                <a href="editmyinfo.php?studentID=<?php echo $user['studentID']; ?>">
+                <a href="#base">
                   <i class="fas fa-user"></i>
-                  <p>Edit Profile Info</p>
+                  <p>Edit Profile Details</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -244,7 +232,7 @@ $con->close();
                       />
                     </div>
                     <span class="profile-username">
-                      <span class="op-7">Hi,</span> <span class="fw-bold"><?php echo $user['firstName']; ?></span>
+                      <span class="op-7">Hi,</span> <span class="fw-bold"><?php echo $_SESSION['user']['userRole']; ?></span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -259,14 +247,14 @@ $con->close();
                             />
                           </div>
                           <div class="u-text">
-                            <h4><?php echo $user['fullName']; ?></h4>
-                            <p class="text-muted"><?php echo $user['studentID']; ?></p>
+                            <h4><?php echo $_SESSION['user']['userRole']; ?></h4>
+                            <p class="text-muted"><?php echo $_SESSION['user']['userLogin']; ?></p>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="myinfo.php?studentID=<?php echo $user['studentID']; ?>">View Personal Information</a>
+                        <a class="dropdown-item" href="#">View Personal Information</a>
                         <a class="dropdown-item" href="#">Account Settings</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../logout.php">Logout</a>

@@ -1,5 +1,5 @@
 <?php
-include 'dbcon.php';
+include '../dbcon.php';
 
 if (isset($_GET['studentID'])) {
     $studentID = $_GET['studentID'];
@@ -8,13 +8,9 @@ if (isset($_GET['studentID'])) {
     //$deleteGrades = "DELETE FROM grades WHERE studentID = '$studentID'";
     //mysqli_query($con, $deleteGrades);
 
-    $deleteAccount = "DELETE FROM users WHERE userLogin = '$studentID'";
-    mysqli_query($con, $deleteAccount);
-
-    // Delete from students table
-    $deleteStudent = "DELETE FROM students WHERE email = '$studentID'";
-    if (mysqli_query($con, $deleteStudent)) {
-        header("Location: ../manage-students.php");
+    $deleteSubject = "DELETE FROM studentsubjects WHERE studentID = '$studentID'";
+    if (mysqli_query($con, $deleteSubject)) {
+        header("Location: ../manage-st_subjects.php");
     } else {
         echo "Error deleting record: " . mysqli_error($con);
     }
