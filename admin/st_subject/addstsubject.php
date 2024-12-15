@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtInsert->bind_param("ii", $studentID, $subjectID);
 
             if ($stmtInsert->execute()) {
-                echo "Successfully added Subject ID $subjectID for Student ID $studentID.<br>";
+                header("Location: ../manage-st_subjects.php");
             } else {
                 echo "Failed to add Subject ID $subjectID for Student ID $studentID: " . $stmtInsert->error . "<br>";
             }

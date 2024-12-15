@@ -47,7 +47,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['userRole'] !== 'Admin') {
                     <form action="addstsubject.php" method="POST" class="user">  
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3">
-                                        Student ID - Name: <select class="btn btn-primary btn-border" id="selectstudent" name="selectstudent">
+                                        Student ID - Name: <select class="form-control" id="selectstudent" name="selectstudent">
                                             <?php
                                                 include 'fetchstudent.php'
                                             ?>

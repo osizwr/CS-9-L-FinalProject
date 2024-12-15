@@ -49,8 +49,6 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['userRole'] !== 'Admin') {
                             <th>Student ID</th>
                             <th>Name</th>
                             <th>Corporate Email</th>
-                            <th>Subject</th>
-                            <th>Semester</th>
                             <th>Action</th>
                           </tr>
                         </thead>
